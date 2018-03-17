@@ -18,6 +18,7 @@ var docsdisplayed = 5;
 //     }).fail(function(err) {
 //       throw err;
 //     });;
+//     console.log(url)
 // });
 
 $("#submit").on("click", function(event) {
@@ -32,22 +33,45 @@ $("#submit").on("click", function(event) {
         'api-key': "928e9f1b82f8483585bbe7df0b793334",
     });
 
-    if (HF == true){
-       var HF = $("#HFinput").val().trim();
-       url += '?' + HF;
+    var HF = $("#HFinput").val().trim();
+    var minyear = $("#startYear").val().trim();
+    var maxyear = $("#endYear").val().trim();
+
+    if (HF !== ""){
+        console.log("input");
+        url += '&q=' + HF;
     }
 
-    if (minyear == true){
-        var minyear = $("#startYear").val().trim();
-        url += '?' + minyear;
+    if (minyear != ""){
+        url += '&begin_date=' + minyear;
     }
-    if (maxyear == true){
-        var maxyear = $("#endYear").val().trim();
-        url += '?' + maxyear;
+    
+    if (maxyear != ""){
+        url += '&end_date=' + maxyear;
     }
-
-   console.log(url);
    
+    // if (minyear != ""){
+    //     if (minyear.length == 8){
+    //         url += '&begin_date=' + minyear;
+    //     } else {
+    //         alert ("Please enter a date in the YYYYMMDD format")
+    //     }
+    // }
+
+    // if (maxyear != ""){
+    //     if (maxyear.length == 8){
+    //         // console.log("Correct");
+    //         url += '&begin_date=' + maxyear;
+    //     } else {
+    //         alert ("Please enter a date in the YYYYMMDD format")
+    //     }
+    // }
+
+    console.log(url);
+   
+
+
+
     // url += '?' + $.param({
     //   'api-key': "928e9f1b82f8483585bbe7df0b793334",
     //   'q': HF,
