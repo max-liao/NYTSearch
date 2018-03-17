@@ -1,0 +1,27 @@
+/* .container{
+    text-align: center
+
+} */
+
+body {
+    background-color: darkgreen;
+}
+.display-4{
+    text-align: center;
+    color:green;
+    
+
+}
+
+#text{
+    text-align: center;
+
+}
+
+#formHead {
+    font-weight: bold;
+}
+
+#text {
+    font-style: italic;
+}
