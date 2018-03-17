@@ -1,6 +1,7 @@
+// Number of articles to display
+var docsdisplayed = 3;
 
-var docsdisplayed = 5;
-
+// Function to be displayed on Test button click
 // $("#test").on("click", function(event) {
 //     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 //     url += '?' + $.param({
@@ -21,6 +22,7 @@ var docsdisplayed = 5;
 //     console.log(url)
 // });
 
+
 $("#submit").on("click", function(event) {
     // event.preventDefault() prevents submit button from trying to send a form.
     // Using a submit button instead of a regular button allows the user to hit
@@ -38,7 +40,6 @@ $("#submit").on("click", function(event) {
     var maxyear = $("#endYear").val().trim();
 
     if (HF !== ""){
-        console.log("input");
         url += '&q=' + HF;
     }
 
@@ -67,10 +68,7 @@ $("#submit").on("click", function(event) {
     //     }
     // }
 
-    console.log(url);
-   
-
-
+    // console.log(url);
 
     // url += '?' + $.param({
     //   'api-key': "928e9f1b82f8483585bbe7df0b793334",
@@ -79,8 +77,6 @@ $("#submit").on("click", function(event) {
     //   'end_date': maxyear
     // });
     
-    // console.log(url);
-
     $.ajax({
       url: url,
       method: 'GET',
@@ -95,7 +91,6 @@ $("#submit").on("click", function(event) {
 $("#clearresults").on("click", function(event) {
     $("#top-articles").empty("");
 });
-
 
 function print(result){
     // console.log(docsdisplayed);
