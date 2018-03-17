@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New York Time Search</title>
     
-    
-    <script src="app.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
@@ -28,28 +27,34 @@
             <br>
         <form>
             <div class="form-group">
-              <label id="formHead" for="historicalFigure">Historical Figure</label>
-              <input type="text" class="form-control" id="examplekeywords" aria-describedby="keywordHelp" placeholder="Enter Keyword">
+              <label id="formHead">Historical Figure</label>
+              <input type="text" class="form-control" id="HFinput" aria-describedby="keywordHelp" placeholder="Enter Keyword">
               
             </div>
             
             <div class="form-group">
-              <label id="formHead" for="startYear">Start Year</label>
+              <label id="formHead">Start Year</label>
               <input type="text" class="form-control" id="startYear" placeholder="1920...">
             </div>
             <div class="form-group">
-                    <label id="formHead" for="endYear">End Year</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="1988...">
+                    <label id="formHead">End Year</label>
+                    <input type="text" class="form-control" id="endYear" placeholder="1988...">
                   </div>
             
-            <button type="search" class="btn btn-primary">Search</button>
+            <button type="search" id="submit" class="btn btn-primary">Search</button>
+            <button type="search" id="clear" class="btn btn-primary">Clear</button>
           </form>
       </div>
-      <div class="output">
-          <P>test</P>
-
+      <div class="output" id="top-articles"> Top Articles</div>
 
       </div>
     </div>
+
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src = "app.js"></script>
 </body>
 </html>

@@ -1,42 +1,61 @@
 
 var docsdisplayed = 5;
 
-$("#test").on("click", function(event) {
-    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-    url += '?' + $.param({
-      'api-key': "928e9f1b82f8483585bbe7df0b793334",
-      'q': "trump",
-      'begin_date': "20170101",
-      'end_date': "20180101"
-    });
-    $.ajax({
-      url: url,
-      method: 'GET',
-    }).done(function(result) {
-      console.log(result);
-      print(result);
-    }).fail(function(err) {
-      throw err;
-    });;
-});
+// $("#test").on("click", function(event) {
+//     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+//     url += '?' + $.param({
+//       'api-key': "928e9f1b82f8483585bbe7df0b793334",
+//       'q': "trump",
+//       'begin_date': "20170101",
+//       'end_date': "20180101"
+//     });
+//     $.ajax({
+//       url: url,
+//       method: 'GET',
+//     }).done(function(result) {
+//       console.log(result);
+//       print(result);
+//     }).fail(function(err) {
+//       throw err;
+//     });;
+// });
 
 $("#submit").on("click", function(event) {
     // event.preventDefault() prevents submit button from trying to send a form.
     // Using a submit button instead of a regular button allows the user to hit
     // "Enter" instead of clicking the button if desired
     event.preventDefault();
-    var HF = $("#HFinput").val().trim();
-    var minyear = $("#minyearinput").val().trim();
-    var maxyear = $("#maxyearinput").val().trim();
+
 
     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-    
     url += '?' + $.param({
-      'api-key': "928e9f1b82f8483585bbe7df0b793334",
-      'q': HF,
-      'begin_date': minyear,
-      'end_date': maxyear
+        'api-key': "928e9f1b82f8483585bbe7df0b793334",
     });
+
+    if (HF == true){
+       var HF = $("#HFinput").val().trim();
+       url += '?' + HF;
+    }
+
+    if (minyear == true){
+        var minyear = $("#startYear").val().trim();
+        url += '?' + minyear;
+    }
+    if (maxyear == true){
+        var maxyear = $("#endYear").val().trim();
+        url += '?' + maxyear;
+    }
+
+   console.log(url);
+   
+    // url += '?' + $.param({
+    //   'api-key': "928e9f1b82f8483585bbe7df0b793334",
+    //   'q': HF,
+    //   'begin_date': minyear,
+    //   'end_date': maxyear
+    // });
+    
+    // console.log(url);
 
     $.ajax({
       url: url,
@@ -69,8 +88,7 @@ function print(result){
         // var link = "<a href =" + result.response.docs[0].web_url + "link </a>"
         a.append(p);
         block.append(a);
-        console.log(block);
-
+        // console.log(block);
         $("#top-articles").prepend(block);
     }
 }
