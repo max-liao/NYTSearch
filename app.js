@@ -108,7 +108,7 @@ function print(result){
         a.append(p);
         block.append(a);
         // console.log(block);
-        $("#top-articles").prepend(block);
+        $("#top-articles").append(block);
     }
 }
 
