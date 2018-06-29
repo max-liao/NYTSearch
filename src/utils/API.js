@@ -11,11 +11,11 @@ export default {
   },
   // Gets saved articles
   getSavedArticles: function(id) {
-    return axios.get('http://localhost:3001/api/articles');
+    return axios.get('https://localhost:3001/api/articles');
   },
   // Deletes the article with the given id
   deleteArticle: function(id) {
-    return axios.delete('http://localhost:3001/api/articles/' + id);
+    return axios.delete('https://localhost:3001/api/articles/' + id);
   },
   // Saves a article to the database
   saveArticle: async function(articleData) {   
@@ -26,6 +26,6 @@ export default {
     // console.log(articleData);
     console.log("Trying Axios Post");
     // const url = 'http://localhost:3001/api/articles'
-    return await axios.post('http://localhost:3001/api/articles', articleData)
+    return await axios.post('https://localhost:3001/api/articles', articleData)
   }
 };
