@@ -24,7 +24,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 // mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytsearch");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://<heroku_06cb7spt>:<Max313>@ds123151.mlab.com:23151/heroku_06cb7spt" || "mongodb://localhost/nytsearch");
 
 // Listen on port 3000
 app.listen(PORT, function() {
