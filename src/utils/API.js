@@ -11,18 +11,18 @@ export default {
   },
   // Gets saved articles
   getSavedArticles: function(id) {
-    return axios.get('https://localhost:3001/api/articles');
-    // return axios.get('/api/articles');
+    // return axios.get('https://localhost:3001/api/articles');
+    return axios.get('/api/articles');
   },
   // Deletes the article with the given id
   deleteArticle: function(id) {
-    return axios.delete('https://localhost:3001/api/articles/' + id);
-    // return axios.delete('/api/articles/' + id);
+    // return axios.delete('https://localhost:3001/api/articles/' + id);
+    return axios.delete('/api/articles/' + id);
   },
   // Saves a article to the database
   saveArticle: async function(articleData) {   
     console.log("Trying Axios Post");
-    return await axios.post('https://localhost:3001/api/articles', articleData)
-    // return await axios.post('/api/articles', articleData)
+    // return await axios.post('https://localhost:3001/api/articles', articleData)
+    return await axios.post('/api/articles', articleData)
   }
 };
