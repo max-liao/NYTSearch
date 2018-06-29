@@ -1,28 +1,6 @@
 // Number of articles to display
 var docsdisplayed = 3;
 
-// Function to be displayed on Test button click
-// $("#test").on("click", function(event) {
-//     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-//     url += '?' + $.param({
-//       'api-key': "928e9f1b82f8483585bbe7df0b793334",
-//       'q': "trump",
-//       'begin_date': "20170101",
-//       'end_date': "20180101"
-//     });
-//     $.ajax({
-//       url: url,
-//       method: 'GET',
-//     }).done(function(result) {
-//       console.log(result);
-//       print(result);
-//     }).fail(function(err) {
-//       throw err;
-//     });;
-//     console.log(url)
-// });
-
-
 $("#submit").on("click", function(event) {
     // event.preventDefault() prevents submit button from trying to send a form.
     // Using a submit button instead of a regular button allows the user to hit
@@ -51,32 +29,7 @@ $("#submit").on("click", function(event) {
         url += '&end_date=' + maxyear;
     }
    
-    // if (minyear != ""){
-    //     if (minyear.length == 8){
-    //         url += '&begin_date=' + minyear;
-    //     } else {
-    //         alert ("Please enter a date in the YYYYMMDD format")
-    //     }
-    // }
-
-    // if (maxyear != ""){
-    //     if (maxyear.length == 8){
-    //         // console.log("Correct");
-    //         url += '&begin_date=' + maxyear;
-    //     } else {
-    //         alert ("Please enter a date in the YYYYMMDD format")
-    //     }
-    // }
-
-    // console.log(url);
-
-    // url += '?' + $.param({
-    //   'api-key': "928e9f1b82f8483585bbe7df0b793334",
-    //   'q': HF,
-    //   'begin_date': minyear,
-    //   'end_date': maxyear
-    // });
-    
+    console.log(url)
     $.ajax({
       url: url,
       method: 'GET',
@@ -111,19 +64,3 @@ function print(result){
         $("#top-articles").append(block);
     }
 }
-
-$("#testfq").on("click", function(event) {
-    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-    url += '?' + $.param({
-      'api-key': "928e9f1b82f8483585bbe7df0b793334",
-      'fq': "title:'Patrick's' AND body: 'the'"
-    });
-    $.ajax({
-      url: url,
-      method: 'GET',
-    }).done(function(result) {
-      console.log(result);
-    }).fail(function(err) {
-      throw err;
-    });
-});
