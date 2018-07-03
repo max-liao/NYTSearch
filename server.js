@@ -12,21 +12,25 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Serve up static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("public"));
+}
+
 app.use(routes);
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// const MONGODB_URI = "mongodb://localhost/nytsearch";
-
+// If deployed, use the deployed database. Otherwise use the local mongo database
 // Connect to the Mongo DB
 // mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://<heroku_06cb7spt>:<Max313>@ds123151.mlab.com:23151/heroku_06cb7spt" || "mongodb://localhost/nytsearch");
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost:27017/nytsearch", function(err){
+  console.log("Connected to Mongo");
+}).catch(function(err) {
+  // If an error occurred, send it to the client
+  return res.json(err);
+});
 
-// Listen on port 3000
+// Listen on port 3001
 app.listen(PORT, function() {
   console.log(`🌎 App running on port ${PORT}!`);
 });

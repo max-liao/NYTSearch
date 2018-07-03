@@ -57,16 +57,6 @@ class Articles extends Component {
         url += '&end_date=' + enddate;
     }
     
-    // $.ajax({
-    //   url: url,
-    //   method: 'GET',
-    // }).done(function(result) {
-    //   console.log(result);
-    //   // print(result);
-    // }).fail(function(err) {
-    //   throw err;
-    // });;
-
     API.getArticles(url)
       .then(res => {
         // console.log(res.data);
